@@ -1,1 +1,87 @@
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: block !important;
+  overflow: hidden;
+}
+
+
+.home.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: radial-gradient(circle at center, #2b1948, #0b0b17);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+.hero {
+  margin-top: 8vh;
+  text-align: center;
+}
+
+.hero h1 {
+  font-weight: 600;
+  font-size: 3.2rem;
+  margin-bottom: 25px;
+  font-weight: bold;
+  
+}
+.hero h2 {
+  font-weight: 300;
+  font-size: 2.4rem;
+  color: #ddd;
+  margin-bottom: 25px;
+}
+.cta-button {
+  padding: 16px 40px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 40px;
+  background: linear-gradient(90deg, #7b42ff, #b067ff);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 18px rgba(150, 70, 255, 0.6);
+  transition: 0.2s ease;
+  margin-top: 100px;
+}
+
+.cta-button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 30px rgba(180, 90, 255, 0.9);
+}
+.subtext {
+  font-size: 0.9rem;
+  margin-top: 100px;
+  color: #aaa;
+  font-style: italic;
+}
+
+.home.container::before,
+.home.container::after {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(150, 70, 255, 0.25), transparent 70%);
+  border-radius: 50%;
+  filter: blur(120px);
+}
+
+.home.container::before {
+  top: -50px;
+  left: -80px;
+}
+
+.home.container::after {
+  bottom: -80px;
+  right: -100px;
+}
 
