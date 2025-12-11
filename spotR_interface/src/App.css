@@ -1,23 +1,22 @@
 html, body, #root {
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   margin: 0;
   padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-  display: block !important;
-  overflow: hidden;
+   overflow-x: hidden;
+  overflow-y: visible;
 }
-
 
 .home.container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
-  background: radial-gradient(circle at center, #2b1948, #0b0b17);
+  background: radial-gradient(circle at center, #2d243b, #0b0b17);
   color: white;
   position: relative;
   overflow: hidden;
@@ -26,6 +25,14 @@ body {
   margin-top: 8vh;
   text-align: center;
 }
+
+.logo {
+  width: 150px;
+  height: auto;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 12px rgba(150, 70, 255, 0.5));
+}
+
 
 .hero h1 {
   font-weight: 600;
@@ -36,9 +43,10 @@ body {
 }
 .hero h2 {
   font-weight: 300;
-  font-size: 2.4rem;
+  font-size: 2.0rem;
   color: #ddd;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
+  font-weight: bold;
 }
 .cta-button {
   padding: 16px 40px;
@@ -85,3 +93,47 @@ body {
   right: -100px;
 }
 
+
+.footer {
+  width: 100%;
+  padding: 5px 0;
+  background: radial-gradient(circle, rgba(150, 70, 255, 0.25), transparent 70%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+}
+
+
+.footer-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-text {
+  color: #d1d1d1;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+ 
+}
+
+
+.social-item {
+  color: #9aa0ff;
+  font-size: 20px;
+  transition: 0.3s ease;
+}
+
+.social-item:hover {
+  color: #ffffff;
+  transform: scale(1.15);
+}
