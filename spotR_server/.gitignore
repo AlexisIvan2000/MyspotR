@@ -1,0 +1,7 @@
+_pycache/
+*.pyc
+*.pyo
+.env
+.vscode/
+.DS_Store
+database/spotr.db
