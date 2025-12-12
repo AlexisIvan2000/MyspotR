@@ -1,16 +1,7 @@
-from dotenv import load_dotenv, find_dotenv
+from dotenv import load_dotenv
 load_dotenv()
 
 import os
-
-print("CLIENT ID:", os.getenv("SPOTIFY_CLIENT_ID"))
-print("CLIENT SECRET:", os.getenv("SPOTIFY_CLIENT_SECRET"))
-print("REDIRECT URI:", os.getenv("SPOTIFY_REDIRECT_URI"))
-print("FOUND ENV:", find_dotenv())
-
-
-
-
 class Config:
     SECRET_KEY = os.getenv("SPOTR_SECRET_KEY")
 
