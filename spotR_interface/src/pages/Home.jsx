@@ -1,6 +1,6 @@
 import React from "react";
-import { Footer } from "../components/Footer";
-import { loginWithSpotify } from "../services/auth_api.jsx";
+import { Footer } from "../components/Footer.jsx";
+import { loginWithSpotify } from "../services/auth_api.js";
 
 export default function Home() {
   return (

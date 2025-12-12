@@ -1,30 +1,40 @@
-import api  from "./auth_api";
+import api from "./auth_api";
 
-export async function getSpotifyProfile() {
-    return api.get("/api/profile");
+export async function safeGet(url) {
+    try {
+        const res = await api.get(url);
+        return res.data;
+    } catch (err) {
+        console.error(`Error fetching ${url}`, err);
+        throw err;
+    }
 }
 
-export async function getTopTracks() {
-    return api.get("/api/top-tracks");
+export function getSpotifyProfile() {
+    return safeGet("/api/profile");
 }
 
-export async function getRecentTracks() {
-    return api.get("/api/recent-tracks");
+export function getTopTracks() {
+    return safeGet("/api/top-tracks");
 }
 
-export async function getUserPlaylists() {
-    return api.get("/api/playlists");
+export function getRecentTracks() {
+    return safeGet("/api/recent-tracks");
 }
 
-export async function getAudioFeatures(ids)  {
+export function getUserPlaylists() {
+    return safeGet("/api/playlists");
+}
+
+export function getAudioFeatures(ids) {
     const query = ids.join(",");
-    return api.get(`/api/audio-features?ids=${query}`);
+    return safeGet(`/api/audio-features?ids=${query}`);
 }
 
 export default {
-  getSpotifyProfile,
-  getTopTracks,
-  getRecentTracks,
-  getUserPlaylists,
-  getAudioFeatures,
+    getSpotifyProfile,
+    getTopTracks,
+    getRecentTracks,
+    getUserPlaylists,
+    getAudioFeatures,
 };
