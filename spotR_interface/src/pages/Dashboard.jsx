@@ -17,12 +17,11 @@ export default function Dashboard() {
       <aside className="sidebar">
         <ProfileUser />
         <nav className="menu">
-           <h3>Contact Me</h3>
+          <h3>Contact Me</h3>
           <a href="https://www.linkedin.com/in/alexis-moungang-396104371">Linkedln</a>
           <a href="https://www.snapchat.com/add/alexis_ivan00?share_id=bmC_7yVomHY&locale=en-CA">Snapchat</a>
           <a href="https://github.com/AlexisIvan2000">GitHub</a>
-        <h3>View source code</h3>
-          <a href="">Backend</a>
+          
         </nav>
 
         <button className="logout-btn" onClick={handleLogout}>

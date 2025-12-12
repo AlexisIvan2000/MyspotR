@@ -27,10 +27,12 @@ def create_app():
     from routes.auth_route import auth_bp
     from routes.client_auth import me_bp
     from routes.client_route import client_bp
+    from routes.analysis_route import analysis_bp
 
     app.register_blueprint(auth_bp)
     app.register_blueprint(me_bp)
     app.register_blueprint(client_bp)
+    app.register_blueprint(analysis_bp)
     return app
 
 
