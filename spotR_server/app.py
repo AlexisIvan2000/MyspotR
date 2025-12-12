@@ -10,7 +10,6 @@ def create_app():
    
     app.config["SESSION_COOKIE_NAME"] = "session"
     app.config["SESSION_COOKIE_HTTPONLY"] = True
-
     app.config["SESSION_COOKIE_SECURE"] = False     
     app.config["SESSION_COOKIE_SAMESITE"] = "Lax"    
     app.config["SESSION_COOKIE_DOMAIN"] = "127.0.0.1" 
@@ -27,16 +26,11 @@ def create_app():
 
     from routes.auth_route import auth_bp
     from routes.client_auth import me_bp
+    from routes.client_route import client_bp
 
     app.register_blueprint(auth_bp)
     app.register_blueprint(me_bp)
-
-    @app.route("/test-cookie")
-    def test_cookie():
-        session["hello"] = "world"
-        return "Cookie set!"
-
-
+    app.register_blueprint(client_bp)
     return app
 
 
