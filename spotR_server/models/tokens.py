@@ -1,6 +1,4 @@
-from app import db
-
-from sqlalchemy.orm import relationship
+from extensions import db
 
 class Tokens(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -8,5 +6,3 @@ class Tokens(db.Model):
     refresh_token = db.Column(db.String(250))
     expires_in = db.Column(db.Integer)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
-
-    

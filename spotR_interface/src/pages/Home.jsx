@@ -1,12 +1,8 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import { Footer } from "../components/Footer";
+import { loginWithSpotify } from "../services/auth_api.jsx";
 
 export default function Home() {
-  const navigate = useNavigate();
-  const handleLogin = () => {
-    navigate("/dashboard");
-  };
   return (
     <div className="home container">
       <div className="hero">
@@ -16,7 +12,7 @@ export default function Home() {
         <button
           className="cta-button"
           onClick={() => {
-            handleLogin();
+           loginWithSpotify();
           }}
         >
           Continue with Spotify

@@ -9,7 +9,7 @@ export function Footer() {
   return (
     <footer className="footer">
       <div className="footer-content">
-        <p className="footer-text">© 2025 SpotR All rights reserved.</p>
+        <p className="footer-text">© 2025 MyspotR All rights reserved.</p>
         <div className="footer-social">
           <a
             href={urlGithub}

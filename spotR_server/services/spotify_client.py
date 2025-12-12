@@ -1,4 +1,6 @@
 import requests
+from app import db
+from services.spotify_auth import refresh_access_token
 
 BASE_URL = "https://api.spotify.com/v1"
 
@@ -22,3 +24,15 @@ def get_recent_tracks(token):
 def get_audio_features(token, ids):
     joined = ",".join(ids)
     return requests.get(f"{BASE_URL}/audio-features?ids={joined}", headers=headers(token)).json()
+
+def ensure_valid_token(user):
+    tokens = user.tokens
+    refreshed = refresh_access_token(tokens.refresh_token)
+
+    if "access_token" in refreshed:
+        tokens.access_token = refreshed["access_token"]
+        tokens.expires_in = refreshed.get("expires_in")
+        db.session.commit()
+
+    return tokens.access_token
+    
