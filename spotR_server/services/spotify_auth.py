@@ -10,7 +10,7 @@ TOKEN_URL = "https://accounts.spotify.com/api/token"
 def get_auth_url():
     redirect = urllib.parse.quote(Config.REDIRECT_URI, safe="")
     scope = urllib.parse.quote(
-        "user-read-private user-read-email playlist-read-private user-top-read user-read-recently-played",
+        "user-read-private user-read-email playlist-read-private user-top-read user-read-recently-played user-read-playback-state user-read-currently-playing",
         safe=""
     )
 

@@ -27,12 +27,16 @@ def get_audio_features(token, ids):
 
 def ensure_valid_token(user):
     tokens = user.tokens
-    refreshed = refresh_access_token(tokens.refresh_token)
 
-    if "access_token" in refreshed:
+    if not tokens.access_token:
+        refreshed = refresh_access_token(tokens.refresh_token)
+
+        if "access_token" not in refreshed:
+            raise Exception("Failed to refresh Spotify token")
+
         tokens.access_token = refreshed["access_token"]
         tokens.expires_in = refreshed.get("expires_in")
         db.session.commit()
 
     return tokens.access_token
-    
+

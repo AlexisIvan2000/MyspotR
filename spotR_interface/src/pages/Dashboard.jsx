@@ -6,7 +6,7 @@ import MoodGraph from "../components/MoodGraph.jsx";
 import { logout } from "../services/auth_api.js";
 
 export default function Dashboard() {
-  
+ 
   const handleLogout = async () => {
     await logout();
     window.location.href = "/";
@@ -33,6 +33,8 @@ export default function Dashboard() {
         <section className="grid-two">
           <TopTracks />
           <Playlists />
+          
+
         </section>
 
       </main>

@@ -1,4 +1,4 @@
-import api from "./auth_api";
+import api from "./auth_api.js";
 
 export async function safeGet(url) {
     try {
@@ -29,6 +29,10 @@ export function getUserPlaylists() {
 export function getAudioFeatures(ids) {
     const query = ids.join(",");
     return safeGet(`/api/audio-features?ids=${query}`);
+}
+
+export async function getMoodAnalysis() {
+    return api.get("/api/analysis/mood")
 }
 
 export default {

@@ -1,6 +1,5 @@
-from flask import Blueprint, jsonify, request, session
-from models.user import User
-from extensions import db
+from flask import Blueprint, jsonify, request
+from utils.auth import require_login
 from services.spotify_client import (
     get_profile,
     get_top_tracks,
@@ -9,21 +8,7 @@ from services.spotify_client import (
     get_audio_features,
     ensure_valid_token
 )
-
 client_bp = Blueprint("client", __name__, url_prefix="/api")
-
-def require_login():
-   
-    user_id = session.get("user_id")
-    if not user_id:
-        return None, jsonify({"error": "Not logged in"}), 401
-
-    user = User.query.get(user_id)
-    if not user:
-        return None, jsonify({"error": "User not found"}), 404
-
-    return user, None, None
-
 
 @client_bp.route("/profile")
 def api_profile():

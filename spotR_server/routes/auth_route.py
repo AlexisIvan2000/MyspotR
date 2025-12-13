@@ -73,3 +73,4 @@ def callback():
 def logout():
     session.clear()
     return jsonify({"message": "Logged out successfully"}), 200
+

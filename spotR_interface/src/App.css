@@ -236,3 +236,34 @@ body {
   border-radius: 50%;
   margin-bottom: 12px;
 }
+
+.tracks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.track-card {
+  background: #111;
+  border-radius: 12px;
+  padding: 0.5rem;
+  text-decoration: none;
+  color: white;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.track-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px rgba(29, 185, 84, 0.4);
+}
+
+.track-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.track-info {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+}
+
