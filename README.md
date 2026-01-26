@@ -31,59 +31,71 @@ SpotR est une application web full-stack qui analyse vos habitudes d'écoute Spo
 | Flask | Framework Web |
 | SQLAlchemy | ORM |
 | SQLite | Base de données |
-| Flask-CORS | Requêtes Cross-Origin |
-| Flask-Migrate | Migrations de base de données |
+| python-dotenv | Variables d'environnement |
+| requests | Client HTTP pour l'API Spotify |
 
 ## Structure du Projet
 
 ```
 SpotR/
-├── spotR_interface/          # Frontend (React + Vite)
-│   ├── src/
-│   │   ├── components/       # Composants UI réutilisables
-│   │   │   ├── Footer.jsx
-│   │   │   ├── MoodGraph.jsx
-│   │   │   ├── Playlist.jsx
-│   │   │   ├── ProfileUser.jsx
-│   │   │   ├── ProtectedRoute.jsx
-│   │   │   └── TopTracks.jsx
-│   │   ├── pages/            # Pages
-│   │   │   ├── Dashboard.jsx
-│   │   │   └── Home.jsx
-│   │   ├── services/         # Communication API
-│   │   │   ├── auth_api.js
-│   │   │   └── spotify_api.js
-│   │   ├── App.jsx
-│   │   └── App.css
-│   ├── package.json
-│   └── vite.config.js
+├── README.md
 │
-└── spotR_server/             # Backend (Flask)
-    ├── routes/               # Endpoints API
-    │   ├── analysis_route.py
-    │   ├── auth_route.py
-    │   ├── client_auth.py
-    │   └── client_route.py
-    ├── services/             # Logique métier
-    │   ├── mood_analysis.py
-    │   ├── spotify_auth.py
-    │   └── spotify_client.py
-    ├── models/               # Modèles de base de données
-    │   ├── user.py
-    │   └── tokens.py
-    ├── tests/                # Suite de tests
-    │   ├── conftest.py
-    │   ├── test_analysis.py
-    │   ├── test_auth.py
-    │   └── test_spotify_api.py
-    ├── utils/
-    │   └── auth.py
+├── spotR_interface/                # Frontend (React + Vite)
+│   ├── public/
+│   │   ├── assets/
+│   │   │   └── images/             # Logo et images
+│   │   └── vite.svg
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Footer.jsx          # Pied de page avec liens sociaux
+│   │   │   ├── MoodGraph.jsx       # Graphique d'évolution d'humeur
+│   │   │   ├── Playlist.jsx        # Affichage des playlists
+│   │   │   ├── ProfileUser.jsx     # Profil utilisateur
+│   │   │   ├── ProtectedRoute.jsx  # Protection des routes
+│   │   │   ├── Recommendations.jsx # Recommandations (préparé)
+│   │   │   └── TopTracks.jsx       # Top morceaux
+│   │   ├── pages/
+│   │   │   ├── Dashboard.jsx       # Page principale
+│   │   │   └── Home.jsx            # Page d'accueil
+│   │   ├── services/
+│   │   │   ├── auth_api.js         # API authentification
+│   │   │   └── spotify_api.js      # API Spotify
+│   │   ├── App.jsx                 # Composant principal + routes
+│   │   ├── App.css                 # Styles principaux
+│   │   ├── index.css               # Styles globaux
+│   │   └── main.jsx                # Point d'entrée React
+│   ├── index.html
+│   ├── package.json
+│   ├── vite.config.js
+│   └── eslint.config.js
+│
+└── spotR_server/                   # Backend (Flask)
     ├── database/
-    │   └── spotr.db
-    ├── app.py
-    ├── config.py
-    ├── extensions.py
-    └── requirements.txt
+    │   └── spotr.db                # Base de données SQLite
+    ├── models/
+    │   ├── __init__.py
+    │   ├── user.py                 # Modèle utilisateur
+    │   └── tokens.py               # Modèle tokens OAuth
+    ├── routes/
+    │   ├── analysis_route.py       # Routes d'analyse d'humeur
+    │   ├── auth_route.py           # Routes authentification Spotify
+    │   ├── client_auth.py          # Route /api/me
+    │   └── client_route.py         # Routes données Spotify
+    ├── services/
+    │   ├── mood_analysis.py        # Algorithme d'analyse d'humeur
+    │   ├── spotify_auth.py         # Gestion OAuth Spotify
+    │   └── spotify_client.py       # Client API Spotify
+    ├── tests/
+    │   ├── conftest.py             # Configuration pytest
+    │   ├── test_analysis.py        # Tests analyse d'humeur
+    │   ├── test_auth.py            # Tests authentification
+    │   └── test_spotify_api.py     # Tests API Spotify
+    ├── utils/
+    │   └── auth.py                 # Utilitaire require_login
+    ├── app.py                      # Application Flask
+    ├── config.py                   # Configuration
+    ├── extensions.py               # Extensions (SQLAlchemy)
+    └── requirements.txt            # Dépendances Python
 ```
 
 ## Installation
@@ -97,7 +109,7 @@ SpotR/
 ### 1. Cloner le dépôt
 
 ```bash
-git clone https://github.com/votreutilisateur/SpotR.git
+git clone https://github.com/AlexisIvan2000/SpotR.git
 cd SpotR
 ```
 
@@ -218,26 +230,11 @@ cd spotR_server
 pytest -v
 ```
 
-### Couverture des Tests
-
-- **50 tests** couvrant :
-  - Routes d'authentification
-  - Routes API Spotify
-  - Fonctions d'analyse d'humeur
-  - Routes protégées
-  - Gestion des sessions
-
-## Contribuer
-
-1. Forkez le dépôt
-2. Créez une branche feature (`git checkout -b feature/super-fonctionnalite`)
-3. Committez vos changements (`git commit -m 'Ajout super fonctionnalite'`)
-4. Pushez la branche (`git push origin feature/super-fonctionnalite`)
-5. Ouvrez une Pull Request
-
-## Licence
-
-Ce projet est sous licence MIT.
+**50 tests** couvrant :
+- Routes d'authentification
+- Routes API Spotify
+- Fonctions d'analyse d'humeur
+- Routes protégées
 
 ## Auteur
 
