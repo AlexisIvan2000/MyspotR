@@ -22,9 +22,9 @@ export default function ProfileUser() {
   return (
     <section className="card">
       <img src={profile.images?.[0]?.url} className="avatar" />
-      <h3>{profile.display_name}</h3>
-      <p>{profile.email}</p>
-      <p>{profile.country}</p>
+      <h3 className="profile-name">{profile.display_name}</h3>
+      <p className="profile-email">{profile.email}</p>
+      <p className="profile-country">{profile.country}</p>
 
       <a href={profile.external_urls.spotify} target="_blank" rel="noreferrer">
         See your Spotify Profile
