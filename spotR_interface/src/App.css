@@ -148,12 +148,12 @@ body {
 
 /* ===== SIDEBAR ===== */
 .sidebar {
-  width: 260px;
+  width: 220px;
   background: linear-gradient(180deg, #0f172a, #020617);
-  padding: 24px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 16px;
 }
 
 .menu a {
@@ -168,11 +168,19 @@ body {
 }
 
 .logout-btn {
-  margin-top: auto;
+  margin-top: 24px;
   padding: 10px;
   border-radius: 10px;
   border: none;
   cursor: pointer;
+  background: #1e293b;
+  color: #94a3b8;
+  transition: background 0.2s ease;
+}
+
+.logout-btn:hover {
+  background: #334155;
+  color: white;
 }
 
 /* ===== MAIN CONTENT ===== */
@@ -265,5 +273,18 @@ body {
 .track-info {
   margin-top: 0.5rem;
   font-size: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.track-artist {
+  font-weight: 600;
+  color: #fff;
+}
+
+.track-title {
+  color: #94a3b8;
+  font-size: 0.8rem;
 }
 

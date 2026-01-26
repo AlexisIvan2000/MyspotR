@@ -14,15 +14,17 @@ export default function TopTracks() {
     <section className="card">
       <h2>Top Tracks</h2>
 
-      <ul className="track-list">
+      <div className="tracks-grid">
         {tracks.map((track) => (
-          <li key={track.id}>
-            <img src={track.album.images[2]?.url} />
-            <span>{track.artists.map((artist) => artist.name).join(", ")}</span>
-            <span>{track.name}</span>
-          </li>
+          <div className="track-card" key={track.id}>
+            <img src={track.album.images[1]?.url} alt={track.name} />
+            <div className="track-info">
+              <span className="track-artist">{track.artists.map((artist) => artist.name).join(", ")}</span>
+              <span className="track-title">{track.name}</span>
+            </div>
+          </div>
         ))}
-      </ul>
+      </div>
     </section>
   );
 }

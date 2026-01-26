@@ -26,19 +26,21 @@ useEffect(() => {
   if (!playlists) return <p>Loading playlists...</p>;
 
   return (
-    <div className="playlist-grid">
+    <section className="card">
       <h2>Your Playlists</h2>
-      {playlists.map(pl => (
-        <div key={pl.id} className="playlist-card" onClick={()=> window.open(pl.external_urls.spotify, "_blank")} >
-          <img
-            src={pl.images?.[0]?.url}
-            alt={pl.name}
-            style={{ width: 140, borderRadius: 12 }}
-          />
-          <h4 style={{ color: "white" }}>{pl.name}</h4>
-          <p style={{ color: "#aaa" }}>{pl.tracks.total} tracks</p>
-        </div>
-      ))}
-    </div>
+      <div className="playlist-grid">
+        {playlists.map(pl => (
+          <div key={pl.id} className="playlist-card" onClick={()=> window.open(pl.external_urls.spotify, "_blank")} >
+            <img
+              src={pl.images?.[0]?.url}
+              alt={pl.name}
+              style={{ width: 140, borderRadius: 12 }}
+            />
+            <h4 style={{ color: "white" }}>{pl.name}</h4>
+            <p style={{ color: "#aaa" }}>{pl.tracks.total} tracks</p>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }

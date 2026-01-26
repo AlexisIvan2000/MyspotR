@@ -28,15 +28,10 @@ export default function Dashboard() {
           Logout
         </button>
       </aside>
-      <main className="dashboard-content">     
+      <main className="dashboard-content">
         <MoodGraph />
-        <section className="grid-two">
-          <TopTracks />
-          <Playlists />
-          
-
-        </section>
-
+        <TopTracks />
+        <Playlists />
       </main>
 
     </div>
