@@ -97,7 +97,7 @@ SpotR/
 ### 1. Cloner le dépôt
 
 ```bash
-git clone https://github.com/votreutilisateur/SpotR.git
+git clone https://github.com/AlexisIvan2000/SpotR.git
 cd SpotR
 ```
 
