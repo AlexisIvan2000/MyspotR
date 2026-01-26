@@ -5,3 +5,4 @@ _pycache/
 .vscode/
 .DS_Store
 database/spotr.db
+.pytest_cache/
